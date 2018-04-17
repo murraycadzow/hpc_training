@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h2 class="page-heading">Using New Zealand eScience Infrastructure - documentation</h2>
+
+  {{ content }}
+
+Sections:
+  <ul class="post-list">
+    {% assign sorted_sections = site.pages | where_exp:"page", "page.url contains '/sections/'" | sort: 'order' %}
+    {% for section in sorted_sections %}
+        <li>
+          <h5>
+            <a class="post-link" href="{{ section.url | relative_url }}">{{ section.title | escape }}</a>
+          </h5>
+        </li>
+    {% endfor %}
+  </ul>
+</div>

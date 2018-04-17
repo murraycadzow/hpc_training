@@ -1,22 +1,43 @@
 ---
 layout: page
-title: Summary
-permalink: /summary/
+title: About
+permalink: /about/
 ---
 
-# Introduction to HPC using NeSI
+## How to use New Zealand eScience Infrastructure
 
-Training materials for a hands-on workshop on introduction to HPC using NeSI, including scripts for NeSI HPC training workshop. The materials are largely based on the content created by the University of Otago staff, New Zealand eScience Infrastructure staff and Centre for eResearh at the University of Auckland.
+This website includes training materials for a hands-on workshop on introduction to HPC using NeSI, intermediate and advanced HPC skills.
 
-If you missed the live training session on November 3 2017, you can find a recording at [https://drive.google.com/file/d/15uzVnhihycyC77wmCP0X1XBs-rv1Ogvc/view]. Note: this is an unedited recording - you can skip the first 23 minutes.
+The material is divided into different sections: <br/>
+* Introduction to HPC using NeSI
+* Intermediate HPC skills
+* Advanced HPC skills
+* Kupe cluster
+* Mahuika cluster
+* Maui cluster
+* Pan cluster (to be decommissioned in 2018)
+
+The Kupe Section covers:<br/>
+1)    Architecture <br/>
+2)    Programming environment <br/>
+3)    How to access the system resources <br/>
+4)    Differences between HPC3 and Dev System <br/>
+5)    File systems and their usage <br/>
+6)    Data transfer and access <br/>
+7)    Job scheduler <br/>
+8)    Where are my files – from FitzRoy (why are recent files created on FitzRoy not on Kupe) <br/>
+9)    Software available <br/>
+10)   Getting help and finding documentation <br/>
+11)   Options for formal training later in the year (covering: Cray programming environment,  Allinea and more)
+
 
 #### Contributors:
 
-Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts, Bart Verleye, Jordi Blasco, Martin Feller, Peter Maxwell, Sina Masoud-Ansari, Danny Baillie, Tom Kelly, Alexander Pletzer, Chris Scott, Wolfgang Hayek, Brian Corrie, and Aleksandra Pawlik
+Murray Cadzow, Matthew Healey, Gene Soudlenkov, Sung Bae, Benjamin Roberts,  Bart Verleye, Jordi Blasco, Martin Feller, Peter Maxwell, Sina Masoud-Ansari, Danny Baillie, Tom Kelly, Alexander Pletzer, Chris Scott and Aleksandra Pawlik
 (if you are contributing to the materials, please add your name to the list)
 
 
-## Learning objectives (what you will know after this workshop):
+## The overall learning objectives for this training materials are:
 
 * Learn how to log in on NeSI supercomputers and navigate your way through the environment set up on the login node.
 * Know how to transfer (small to medium-sized) data files and scripts to the cluster via: scp or MobaXterm.
