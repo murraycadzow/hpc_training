@@ -13,38 +13,56 @@ You will learn:
 * how to install R packages in your home directory
 * some tips for building generic packages in your home directory
 
-To make things concrete we'll assume below that the software is called ```foo```, the 
-version you want to install is ```2.1.0``` and that the installation directory is 
-```$HOME/software/foo-2.1.0```.
-
 
 ### How to install Python packages with pip
 
-At the UNIX command line prompt,
+Make sure to load one of the Anaconda Python versions, e.g.
 ```
-pip install 'foo==2.1.0' --user
+module load Anaconda2/5.0.1-GCC-4.8.5
 ```
-The package will be installed under ```$HOME/.local```.
+as this will provide you with loads of Python modules. You can check if a module is 
+available, for instance,
+```
+python -c "import pnumpy"
+```
+If you see an error such as `ImportError: No module named pnumpy` then the Python module is
+not available. Some Python modules may need a parallel envronment so be sure to also have 
+```
+module load mpich
+```
+loaded. To install `pnumpy` locally, type
+```
+pip install pnumpy --user
+```
+The package will then be installed under `$HOME/.local`. The command 
+```
+python -c "import pnumpy"
+```
+should now succeed (no error).
 
 
 ### How to install an R package locally
 
-In R, type
+Make sure to have R loaded, e.g.
 ```
-install.packages('foo', lib='$HOME/sofware/foo-2.1.0')
+module load R/3.3.3-GCC-4.8.5
 ```
-You can then access the installed package within R using
+Then in R, type
 ```
-library('foo', lib.loc='$HOME/software/foo-2.1.0')
+install.packages('abc')
+```
+to install package "abc". You can check that the package built correctly with
+```
+library('abc')
 ```
 
 ### How to build generic packages in your home directory
 
-Most packages involve a three step process. 
+Most packages involve a three step process. Here we cover autotools and CMake build systems.
 
  1. Get the package and unpack 
 
- The most common format for distributing a package is as a "tarball", ```foo-2.1.0.tar.gz```,
+ The most common format for distributing a package is as a "tarball", `foo-2.1.0.tar.gz`,
 typically downloaded from the web. Your first step will likely be 
  ```
  wget https://wonderful.software.com/foo-2.1.0.tar.gz
@@ -53,7 +71,7 @@ typically downloaded from the web. Your first step will likely be
  ```
  tar xf foo-2.1.0.tar.gz
  ```
- which will uncompress the file into a directory, perhaps called ```foo-2.1.0```. Enter the 
+ which will uncompress the file into a directory, perhaps called `foo-2.1.0`. Enter the 
  just created directory:
  ```
  cd foo-2.1.0
@@ -65,11 +83,13 @@ typically downloaded from the web. Your first step will likely be
  the build process. The most common way to configure is either
 
  ```
+ # to list the configuration options
+ ./configure --help
  ./configure --prefix=$HOME/software/foo-2.1.0 [other_options]
  ```
 or
  ```
- cmake -D CMAKE_PREFIX_INSTALL=$HOME/software/foo-2.1.0
+ cmake -D CMAKE_INSTALL_PREFIX=$HOME/software/foo-2.1.0 [other_options] .
  ```
  In the above cases, the installation directory was specified. Often, you will need to provide additional help to configure sucessfully, e.g. give paths to externally dependent libraries and headers. You might also have to provide the compiler and potentially other settings.
 
